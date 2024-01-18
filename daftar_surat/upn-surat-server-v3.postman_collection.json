@@ -1,0 +1,1645 @@
+{
+	"info": {
+		"_postman_id": "b51d9044-438f-44a3-a0b6-45ccd94bde47",
+		"name": "upn-surat-server-v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26591570",
+		"_collection_link": "https://galactic-equinox-107231.postman.co/workspace/Team-Workspace~609c29a8-4b2d-4efa-898a-b01d5cef0b78/collection/26591570-b51d9044-438f-44a3-a0b6-45ccd94bde47?action=share&source=collection_link&creator=26591570"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Dekan",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "dekan@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "prodi_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "fakultas_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/auth/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/auth/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset pass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/auth/reset-password?id=5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aktif user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDYwODYyOCwiZXhwIjoxNzA0NjEyMjI4fQ.T0WLsbsiuVvmknl74ametRSjX4FSI3b6AHiHY6AxH-Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "aktif",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/auth/aktivasi?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"aktivasi"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDY0NDM2NiwiZXhwIjoxNzA0NzMwNzY2fQ.lNBqKuuBit2eovGBLey3daWq64OOj8rFVhAwjyMdssI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/user/?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upd pass",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDc0NDc0OSwiZXhwIjoxNzA0ODMxMTQ5fQ.PJQfe0XqfLzoLPvuDhaNmbheIap9Lz01o_UnRxykOg0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "dekan",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/user/password",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"user",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role-user",
+			"item": [
+				{
+					"name": "get role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/role-user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "IT",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/role-user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Akuntan",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/role-user?id=6",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{server}}/role-user?id=6",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"role-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "template-surat",
+			"item": [
+				{
+					"name": "getall temp_surat",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{server}}/template-surat",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete temp_surat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/template-surat/?id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload cloudinary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDc3NzU4NSwiZXhwIjoxNzA0ODYzOTg1fQ.nkhujkVjH0vNM8hNm6QR1OFpGzRj3JmzJp9yeZX34cg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "surat",
+									"type": "file",
+									"src": "/C:/Users/Rizal/Downloads/[object Object].pdf"
+								},
+								{
+									"key": "deskripsi",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "jenis",
+									"value": "surat tugas",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "judul",
+									"value": "coba2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/template-surat/upload/cloudinary",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat",
+								"upload",
+								"cloudinary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download cloudinary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/template-surat/download/cloudinary?id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat",
+								"download",
+								"cloudinary"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDY0MDcyMSwiZXhwIjoxNzA0NjQ0MzIxfQ.58Fs5xKLUx4KAEBj0SuinHB0bLFc1CeKu8GnvS0dlDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/template-surat/detail?id=10",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update temp_surat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "surat",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "jenis",
+									"value": "surat panggil",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "judul",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/template-surat/update/cloudinary?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"template-surat",
+								"update",
+								"cloudinary"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notifikasi",
+			"item": [
+				{
+					"name": "post notif",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzAzOTU3MzczLCJleHAiOjE3MDM5NjA5NzN9.w6FAHb2Myaylb47jtmPBUPBv991IwDuV-i1ngbVIjog",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "surat_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "role_id_dari",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "role_id_ke",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/notifikasi/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"notifikasi",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://res.cloudinary.com/dycdzi3xc/raw/upload/v1704378208/zjqqczdmvf1rjklsrwfq",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://res.cloudinary.com/dycdzi3xc/raw/upload/v1704378208/zjqqczdmvf1rjklsrwfq",
+							"protocol": "http",
+							"host": [
+								"res",
+								"cloudinary",
+								"com"
+							],
+							"path": [
+								"dycdzi3xc",
+								"raw",
+								"upload",
+								"v1704378208",
+								"zjqqczdmvf1rjklsrwfq"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "daftar-surat",
+			"item": [
+				{
+					"name": "upload surat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDc0NDEwNywiZXhwIjoxNzA0ODMwNTA3fQ.cKiKu7ubuGQq_Ww92RlT-yagiqUALVg_sStPEXArPwA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "catatan12",
+									"type": "text"
+								},
+								{
+									"key": "surat",
+									"type": "file",
+									"src": "/C:/Users/Rizal/Downloads/Documents/jambeck2015.pdf"
+								},
+								{
+									"key": "jenis",
+									"value": "surat panggil",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/C:/Users/Rizal/Downloads/cld-sample-5.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/daftar-surat/upload/cloudinary/v2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"daftar-surat",
+								"upload",
+								"cloudinary",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll (by prodi)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDc0NDc0OSwiZXhwIjoxNzA0ODMxMTQ5fQ.PJQfe0XqfLzoLPvuDhaNmbheIap9Lz01o_UnRxykOg0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/daftar-surat",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"daftar-surat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDU0ODM3NiwiZXhwIjoxNzA0NTUxOTc2fQ.--pXZdvFGNdIKSrWH602vHR8Syuple8Rq8K4dX3v638",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "daftar_surat_id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/daftar-surat/detail",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"daftar-surat",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download surat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDk4MTEzMSwiZXhwIjoxNzA1MDY3NTMxfQ.06W-SwZCnzB5rJ3NmpcHPD3KOFBfPS3Kk2ZsR89VlCM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/daftar-surat/download/cloudinary?id=4",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"daftar-surat",
+								"download",
+								"cloudinary"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "komentar",
+			"item": [
+				{
+					"name": "get komentar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImFrdGlmIjp0cnVlLCJpYXQiOjE3MDQ5ODg1NjIsImV4cCI6MTcwNTA3NDk2Mn0.n5G0kmYwMTsa1d_QsbuVbPCbeZsIAtAGTT5xOt_bs1g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{server}}/komentar/?id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"komentar",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post komentar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "role_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "komentar",
+									"value": "asdkmawludg ",
+									"type": "text"
+								},
+								{
+									"key": "surat_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/komentar/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"komentar",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prodi",
+			"item": [
+				{
+					"name": "getAll prodi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/prodi",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"prodi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upd prodi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Infortmatika",
+									"type": "text"
+								},
+								{
+									"key": "kode_prodi",
+									"value": "IT",
+									"type": "text"
+								},
+								{
+									"key": "fakultas_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/prodi?id=6",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"prodi"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete prodi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/prodi?id=7",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"prodi"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add prodi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "coba1",
+									"type": "text"
+								},
+								{
+									"key": "kode_prodi",
+									"value": "cb1",
+									"type": "text"
+								},
+								{
+									"key": "fakultas_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/prodi",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"prodi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fakultas",
+			"item": [
+				{
+					"name": "get fakul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/fakultas",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"fakultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upd fakul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama",
+									"value": "Depart Info dan Kom",
+									"type": "text"
+								},
+								{
+									"key": "jenjang",
+									"value": "D4",
+									"type": "text"
+								},
+								{
+									"key": "kode_fakultas",
+									"value": "DTIK",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/fakultas?id=3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"fakultas"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete fakultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/fakultas?id=3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"fakultas"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add fakul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Teknik Komputer",
+									"type": "text"
+								},
+								{
+									"key": "jenjang",
+									"value": "S1",
+									"type": "text"
+								},
+								{
+									"key": "kode_fakultas",
+									"value": "TIK",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/fakultas",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"fakultas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "periode",
+			"item": [
+				{
+					"name": "add periode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tahun",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "semester",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "prodi_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/periode",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"periode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get periode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/periode",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"periode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update periode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDczMjM2MiwiZXhwIjoxNzA0ODE4NzYyfQ.OvR-UUj4X1FVmfhO04LpR7-NxIM0TX9ne6ALLbZ3B50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tahun",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "semester",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "prodi_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/periode?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"periode"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nomor surat",
+			"item": [
+				{
+					"name": "post nomor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "surat_id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/nomor-surat",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"nomor-surat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "persetujuan",
+			"item": [
+				{
+					"name": "persetujuan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiYWt0aWYiOnRydWUsImlhdCI6MTcwNDc0NDc0OSwiZXhwIjoxNzA0ODMxMTQ5fQ.PJQfe0XqfLzoLPvuDhaNmbheIap9Lz01o_UnRxykOg0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "disetujui dekan",
+									"type": "text"
+								},
+								{
+									"key": "persetujuan",
+									"value": "disetujui dekan",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/daftar-surat/persetujuan?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"daftar-surat",
+								"persetujuan"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "repo",
+			"item": [
+				{
+					"name": "post repo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
